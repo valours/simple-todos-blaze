@@ -5,19 +5,24 @@
 <template name="mainContainer">
   <div class="container">
     <header>
-      <h1>Todo List</h1>
+      <h1>Todo List {{incompleteCount}}</h1>
     </header>
-
+    {{#if isUserLogged}}
+    <div class="user">{{getUser.username}} 🚪</div>
     {{> form}}
-
+    <div class="filter">
+      <button id="hide-completed-button">
+        {{#if hideCompleted}} Show All {{else}} Hide Completed {{/if}}
+      </button>
+    </div>
     <ul>
       {{#each tasks}} {{> task}} {{/each}}
     </ul>
+    {{else}} {{> login }} {{/if}}
   </div>
-</template>
-
-<template name="task">
-  <li>{{text}}</li>
+  {{#if isUserLogged}}
+  <button id="logout">Log Out</button>
+  {{/if}}
 </template>
 
 <template name="form">

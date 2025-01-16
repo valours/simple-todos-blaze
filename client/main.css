@@ -6,3 +6,13 @@ body {
 .task-form {
   margin-top: 1rem;
 }
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  margin: 4px;
+  list-style-type: none;
+}
+
